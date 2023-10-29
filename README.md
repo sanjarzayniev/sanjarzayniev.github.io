@@ -6,4 +6,4 @@ You can serve this project by using `nginx`, or by simply opening from browser.
 
 <hr>
 
-Author: **Sanjar Zayniyev**
+Author: **Sanjar Zayniev**
