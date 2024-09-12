@@ -2,7 +2,7 @@
 
 ## Running
 
-You can serve this project by using `nginx`, or by simply opening from browser.
+You can serve this project by visiting https://zayniev.uz or https://sanjarzayniev.github.io/ 
 
 <hr>
 
