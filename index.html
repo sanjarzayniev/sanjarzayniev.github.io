@@ -98,21 +98,35 @@
     }
 
     .movie-image {
-    width: 100%;
-    height: 250px; /* Set a fixed height */
-    object-fit: cover; /* Ensures the images fill the space without distortion */
+      width: 100%;
+      height: 250px;
+      /* Set a fixed height */
+      object-fit: cover;
+      /* Ensure the images fill the space without distortion */
     }
 
+    a.logo-refresh {
+      color: inherit;
+      /* Keep the original color of the logo */
+      text-decoration: none;
+      /* Remove the underline */
+    }
+
+    a.logo-refresh:hover,
+    a.logo-refresh:focus {
+      color: inherit;
+      /* Prevent color change on hover or focus */
+    }
   </style>
 </head>
 
 <body>
   <div class="container">
     <h1 class="text-center">
-      <a href="#" onclick="location.reload(); return false;">
+      <a href="#" class="logo-refresh" onclick="location.reload(); return false;">
         <i class="fa-solid fa-rocket"></i>
         <span class="title">Sanjar's Page</span>
-      </a>      
+      </a>
     </h1>
 
     <div class="alert alert-success h5 text-center" role="alert">
@@ -150,7 +164,9 @@
         </ul>
       </li>
       <li class="list-group-item">
-        <span><center>My 3 favorite movies:</center><br /></span>
+        <span>
+          <center>My 3 favorite movies:</center><br />
+        </span>
         <table class="table table-bordered">
           <tr>
             <th>
@@ -174,7 +190,8 @@
             <td>
               Drive(2011).
               <a target="_blank"
-                href="https://www.google.com/search?q=drive+movie+box+office&client=ubuntu&hs=dFs&sca_esv=c029e4d275f10b11&channel=fs&sxsrf=ADLYWIKCexIq38M1--CAOV9pTTw_YY715g%3A1726082912363&ei=YO_hZoP0FYT_wPAPy-WsiA8&oq=drive+movie+box+&gs_lp=Egxnd3Mtd2l6LXNlcnAiEGRyaXZlIG1vdmllIGJveCAqAggAMgsQABiABBiRAhiKBTIFEAAYgAQyBhAAGBYYHjIGEAAYFhgeMggQABgWGB4YDzIIEAAYFhgeGA8yBhAAGBYYHjIIEAAYFhgeGA8yBhAAGBYYHjIGEAAYFhgeSNkdUIMGWIoNcAF4AZABAJgB-QGgAeAHqgEFMC4yLjO4AQHIAQD4AQGYAgagApAIwgIKEAAYsAMY1gQYR8ICDRAAGIAEGLADGEMYigXCAg4QABiwAxjkAhjWBNgBAcICExAuGIAEGLADGEMYyAMYigXYAQLCAgoQIxiABBgnGIoFwgIKEAAYgAQYFBiHAsICBRAuGIAEwgIKEAAYgAQYQxiKBZgDAIgGAZAGE7oGBggBEAEYCboGBggCEAEYCJIHBTEuMi4zoAfEKQ&sclient=gws-wiz-serp">Box office:</a>
+                href="https://www.google.com/search?q=drive+movie+box+office&client=ubuntu&hs=dFs&sca_esv=c029e4d275f10b11&channel=fs&sxsrf=ADLYWIKCexIq38M1--CAOV9pTTw_YY715g%3A1726082912363&ei=YO_hZoP0FYT_wPAPy-WsiA8&oq=drive+movie+box+&gs_lp=Egxnd3Mtd2l6LXNlcnAiEGRyaXZlIG1vdmllIGJveCAqAggAMgsQABiABBiRAhiKBTIFEAAYgAQyBhAAGBYYHjIGEAAYFhgeMggQABgWGB4YDzIIEAAYFhgeGA8yBhAAGBYYHjIIEAAYFhgeGA8yBhAAGBYYHjIGEAAYFhgeSNkdUIMGWIoNcAF4AZABAJgB-QGgAeAHqgEFMC4yLjO4AQHIAQD4AQGYAgagApAIwgIKEAAYsAMY1gQYR8ICDRAAGIAEGLADGEMYigXCAg4QABiwAxjkAhjWBNgBAcICExAuGIAEGLADGEMYyAMYigXYAQLCAgoQIxiABBgnGIoFwgIKEAAYgAQYFBiHAsICBRAuGIAEwgIKEAAYgAQYQxiKBZgDAIgGAZAGE7oGBggBEAEYCboGBggCEAEYCJIHBTEuMi4zoAfEKQ&sclient=gws-wiz-serp">Box
+                office:</a>
               $81.4 million
             </td>
             <td>
@@ -190,7 +207,8 @@
 
       <li class="list-group-item">
         <center>My favourite
-        <a target="_blank" href="https://www.youtube.com/c/fallontonight/featured">TV show</a></center>
+          <a target="_blank" href="https://www.youtube.com/c/fallontonight/featured">TV show</a>
+        </center>
       </li>
       <li class="list-group-item">
         <div class="text-center">
