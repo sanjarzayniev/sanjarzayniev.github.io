@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article | Sanjar Zayniev</title>
+    <link rel="icon" href="./pics/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Marked.js for Markdown parsing -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+      .article-viewer {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .article-header {
+        margin-bottom: 3rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .article-title {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .article-meta {
+        display: flex;
+        gap: 1.5rem;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.9rem;
+        flex-wrap: wrap;
+      }
+
+      .article-meta span {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .article-content {
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.8;
+        font-size: 1.1rem;
+      }
+
+      .article-content h1,
+      .article-content h2,
+      .article-content h3,
+      .article-content h4 {
+        font-family: "Space Grotesk", sans-serif;
+        color: #ffffff;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+      }
+
+      .article-content h1 {
+        font-size: 2.5rem;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 0.5rem;
+      }
+
+      .article-content h2 {
+        font-size: 2rem;
+      }
+
+      .article-content h3 {
+        font-size: 1.5rem;
+      }
+
+      .article-content p {
+        margin-bottom: 1.5rem;
+      }
+
+      .article-content ul,
+      .article-content ol {
+        margin-bottom: 1.5rem;
+        padding-left: 2rem;
+      }
+
+      .article-content li {
+        margin-bottom: 0.5rem;
+      }
+
+      .article-content code {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-family: "Courier New", monospace;
+        font-size: 0.9em;
+        color: var(--primary-color);
+      }
+
+      .article-content pre {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 1.5rem;
+        border-radius: 8px;
+        overflow-x: auto;
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--border-color);
+      }
+
+      .article-content pre code {
+        background: none;
+        padding: 0;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .article-content blockquote {
+        border-left: 4px solid var(--primary-color);
+        padding-left: 1.5rem;
+        margin: 1.5rem 0;
+        color: rgba(255, 255, 255, 0.7);
+        font-style: italic;
+      }
+
+      .article-content a {
+        color: var(--primary-color);
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.3s ease;
+      }
+
+      .article-content a:hover {
+        border-bottom-color: var(--primary-color);
+      }
+
+      .article-content img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin: 0.2rem 0;
+        border: 1px solid var(--border-color);
+      }
+
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        margin-bottom: 2rem;
+        transition: color 0.3s ease;
+      }
+
+      .back-link:hover {
+        color: var(--primary-color);
+      }
+
+      .loading {
+        /* text-align: center; */
+        padding: 3rem;
+        color: rgba(255, 255, 255, 0.6);
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+      <div class="nav-wrapper">
+        <a href="index.html" class="logo">
+          <span class="logo-text">SZ</span>
+        </a>
+        <div class="nav-menu">
+          <a href="about.html" class="nav-link">About</a>
+          <a href="articles.html" class="nav-link">Articles</a>
+          <a href="old.html" class="nav-link">Old</a>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="page-container">
+      <div class="article-viewer">
+        <a href="articles.html" class="back-link">
+          <i class="fa-solid fa-arrow-left"></i>
+          Back to Articles
+        </a>
+        <div id="article-content" class="loading">
+          <p>Loading article...</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <p>
+          &copy; 2025. Made with
+          <i class="fa-solid fa-heart"></i> by Sanjar
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+      const navMenu = document.querySelector(".nav-menu");
+
+      mobileMenuToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+        mobileMenuToggle.classList.toggle("active");
+      });
+
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          navMenu.classList.remove("active");
+          mobileMenuToggle.classList.remove("active");
+        });
+      });
+
+      // Parse frontmatter
+      function parseFrontmatter(content) {
+        const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
+        const match = content.match(frontmatterRegex);
+        
+        if (match) {
+          const frontmatterText = match[1];
+          const body = match[2];
+          const frontmatter = {};
+          
+          frontmatterText.split('\n').forEach(line => {
+            const colonIndex = line.indexOf(':');
+            if (colonIndex > -1) {
+              const key = line.substring(0, colonIndex).trim();
+              let value = line.substring(colonIndex + 1).trim();
+              // Remove quotes if present
+              if ((value.startsWith('"') && value.endsWith('"')) || 
+                  (value.startsWith("'") && value.endsWith("'"))) {
+                value = value.slice(1, -1);
+              }
+              frontmatter[key] = value;
+            }
+          });
+          
+          return { frontmatter, body };
+        }
+        
+        return { frontmatter: {}, body: content };
+      }
+
+      // Load and display article
+      async function loadArticle() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const articleFile = urlParams.get('article');
+        
+        if (!articleFile) {
+          document.getElementById('article-content').innerHTML = 
+            '<p style="color: rgba(255, 255, 255, 0.7);">No article specified.</p>';
+          return;
+        }
+
+        try {
+          // Use relative path from root
+          const articlePath = `./articles/${articleFile}`;
+          const response = await fetch(articlePath);
+          
+          if (!response.ok) {
+            throw new Error(`Article not found: ${response.status} ${response.statusText}`);
+          }
+          
+          const markdown = await response.text();
+          
+          if (!markdown || markdown.trim().length === 0) {
+            throw new Error('Article file is empty');
+          }
+          
+          const { frontmatter, body } = parseFrontmatter(markdown);
+          
+          // Configure marked options
+          marked.setOptions({
+            breaks: true,
+            gfm: true,
+          });
+          
+          // Render markdown to HTML
+          let html = marked.parse(body);
+          
+          // Remove the first H1 if it matches the frontmatter title (to avoid duplicate title)
+          if (frontmatter.title) {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            const firstH1 = tempDiv.querySelector('h1');
+            if (firstH1 && firstH1.textContent.trim() === frontmatter.title.trim()) {
+              firstH1.remove();
+              html = tempDiv.innerHTML;
+            }
+          }
+          
+          // Format date
+          let dateDisplay = '';
+          if (frontmatter.date) {
+            const date = new Date(frontmatter.date);
+            dateDisplay = date.toLocaleDateString('en-US', { 
+              year: 'numeric', 
+              month: 'long', 
+              day: 'numeric' 
+            });
+          }
+          
+          // Update page title
+          if (frontmatter.title) {
+            document.title = `${frontmatter.title}`;
+          }
+          
+          // Render article
+          document.getElementById('article-content').innerHTML = `
+            <div class="article-header">
+              <h1 class="article-title">${frontmatter.title || 'Untitled'}</h1>
+              <div class="article-meta">
+                ${dateDisplay ? `<span><i class="fa-solid fa-calendar"></i> ${dateDisplay}</span>` : ''}
+                ${frontmatter.excerpt ? `<span><i class="fa-solid fa-quote-left"></i> ${frontmatter.excerpt}</span>` : ''}
+              </div>
+            </div>
+            <div class="article-content">${html}</div>
+          `;
+        } catch (error) {
+          console.error('Error loading article:', error);
+          document.getElementById('article-content').innerHTML = 
+            `<div style="text-align: center; padding: 3rem;">
+              <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 1rem;">Error loading article</p>
+              <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.9rem;">${error.message}</p>
+              <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.9rem; margin-top: 1rem;">Trying to load: ${articleFile}</p>
+              <a href="articles.html" style="color: var(--primary-color); text-decoration: none; margin-top: 1rem; display: inline-block;">← Back to Articles</a>
+            </div>`;
+        }
+      }
+
+      // Load article on page load
+      loadArticle();
+    </script>
+  </body>
+</html>
+

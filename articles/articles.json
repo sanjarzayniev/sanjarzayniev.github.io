@@ -1,0 +1,18 @@
+{
+  "articles": [
+    {
+      "file": "linux-disk-xotirasini-kengaytirish.md",
+      "title": "Linux uchun ajratilgan disk xotirasini qanday qilib kengaytirish mumkin?",
+      "date": "2024-08-24",
+      "excerpt": "Dual boot tizimida Linux disk partition'ini GParted yordamida xavfsiz kengaytirish bo'yicha qo'llanma"
+    },
+    {
+      "file": "operatsion-tizim-usb-xotiraga-qanday-qilib-yuklanadi.md",
+      "title": "Operatsion tizim USB xotiraga qanday qilib o'rnatiladi?",
+      "date": "2024-06-22",
+      "excerpt": "USB xotiraga operatsion tizim yuklash bo'yicha to'liq qo'llanma - bootable USB yaratish va foydalanish"
+    }
+  ],
+  "generated": "2025-01-25T00:00:00.000Z",
+  "count": 2
+}

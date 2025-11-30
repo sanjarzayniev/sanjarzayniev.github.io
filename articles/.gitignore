@@ -1,0 +1,9 @@
+# Ignore generated files (optional - you can commit articles.json if you prefer)
+# articles.json
+
+# Ignore template files from being indexed
+article-template.md
+
+
+
+
